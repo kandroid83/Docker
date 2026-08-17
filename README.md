@@ -76,7 +76,11 @@ services:
 
     ports:
     - "5000:5000"
-И выполните команду "docker compose up -d". Какой из файлов был запущен и почему? (подсказка: https://docs.docker.com/compose/compose-application-model/#the-compose-file )
+#### И выполните команду "docker compose up -d". Какой из файлов был запущен и почему? (подсказка: https://docs.docker.com/compose/compose-application-model/#the-compose-file )
+
+Docker Compose использует только один основной файл (с наивысшим приоритетом). Остальные файлы с другими именами игнорируются, 
+если не указаны явно через -f. Поэтому при наличии compose.yaml сервис из docker-compose.yaml не запускается.
+
 ![Compose-1](Compose-1.png)
 
 ### 2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
@@ -102,11 +106,17 @@ services:
 ![Compose-5](Compose-5.png)
 ### 6. Перейдите на страницу "http://127.0.0.1:9000/#!/2/docker/containers", выберите контейнер с nginx и нажмите на кнопку "inspect". В представлении <> Tree разверните поле "Config" и сделайте скриншот от поля "AppArmorProfile" до "Driver".
 #### https://github.com/kandroid83/Docker/blob/main/custom-nginx.txt
-![Config-nginx](Config-nginx.png)
-### 7. Удалите любой из манифестов компоуза(например compose.yaml). Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
+![Config-nginx](Config_nginx.png)
+### 7. Удалите любой из манифестов компоуза(например compose.yaml). Выполните команду "docker compose up -d". 
+###  Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
+version is obsolete – строка version: "3" в compose-файле больше не нужна (игнорируется). Это просто напоминание, можно удалить, чтобы избежать путаницы.
+Found orphan containers – контейнер Portainer (tasks5-portainer-1) остался запущенным, но теперь он не описан в активном compose-файле (так как мы удалили compose.yaml, где он был определён).
+Такой контейнер называется «осиротевшим». Это потенциальная проблема, потому что Compose больше не управляет этим контейнером, но он всё ещё работает.
 
-Docker Compose использует только один основной файл (с наивысшим приоритетом). Остальные файлы с другими именами игнорируются, 
-если не указаны явно через -f. Поэтому при наличии compose.yaml сервис из docker-compose.yaml не запускается.
+Предложенное действие – выполнить docker compose up -d --remove-orphans, чтобы удалить все осиротевшие контейнеры и привести проект в соответствие с текущим файлом. После этой команды останется только сервис registry.
+
+![Compose-6](Compose-6.png)
+![Compose-7](Compose-7.png)
 
 
