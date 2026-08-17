@@ -66,6 +66,9 @@ services:
     image: portainer/portainer-ce:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+
+#### https://github.com/kandroid83/Docker/blob/main/compose.yaml
+      
 #### "docker-compose.yaml" с содержимым:
 
 version: "3"
