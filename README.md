@@ -57,7 +57,8 @@ https://hub.docker.com/repository/docker/android83/custom-nginx/general
 
 ## Задание 5
 
-### 1. Создайте отдельную директорию(например /tmp/netology/docker/task5) и 2 файла внутри него. "compose.yaml" с содержимым:
+### 1. Создайте отдельную директорию(например /tmp/netology/docker/task5) и 2 файла внутри него. 
+#### "compose.yaml" с содержимым:
 version: "3"
 services:
   portainer:
@@ -65,7 +66,7 @@ services:
     image: portainer/portainer-ce:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-"docker-compose.yaml" с содержимым:
+#### "docker-compose.yaml" с содержимым:
 
 version: "3"
 services:
