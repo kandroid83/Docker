@@ -9,4 +9,4 @@ https://hub.docker.com/repository/docker/android83/custom-nginx/general
 ### имя контейнера "ФИО-custom-nginx-t2"
 ### контейнер работает в фоне
 ### контейнер опубликован на порту хост системы 127.0.0.1:8080
-![Zabbix Dashboard](zabbix-auth.png)
+![Com-1](Com-1.png)
