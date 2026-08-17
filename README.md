@@ -101,7 +101,8 @@ services:
       - "9090:80"
 ![Compose-5](Compose-5.png)
 ### 6. Перейдите на страницу "http://127.0.0.1:9000/#!/2/docker/containers", выберите контейнер с nginx и нажмите на кнопку "inspect". В представлении <> Tree разверните поле "Config" и сделайте скриншот от поля "AppArmorProfile" до "Driver".
-![custom-nginx](custom-nginx.txt)
+#### https://github.com/kandroid83/Docker/blob/main/custom-nginx.txt
+![Config-nginx](Config-nginx.png)
 ### 7. Удалите любой из манифестов компоуза(например compose.yaml). Выполните команду "docker compose up -d". Прочитайте warning, объясните суть предупреждения и выполните предложенное действие. Погасите compose-проект ОДНОЙ(обязательно!!) командой.
 
 
