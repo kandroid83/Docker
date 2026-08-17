@@ -66,8 +66,6 @@ services:
     image: portainer/portainer-ce:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-
-#### https://github.com/kandroid83/Docker/blob/main/compose.yaml
       
 #### "docker-compose.yaml" с содержимым:
 
@@ -82,6 +80,9 @@ services:
 ![Compose-1](Compose-1.png)
 
 ### 2. Отредактируйте файл compose.yaml так, чтобы были запущенны оба файла. (подсказка: https://docs.docker.com/compose/compose-file/14-include/)
+
+#### https://github.com/kandroid83/Docker/blob/main/compose.yaml
+
 ![Compose-2](Compose-2.png)
 
 ### 3. Выполните в консоли вашей хостовой ОС необходимые команды чтобы залить образ custom-nginx как custom-nginx:latest в запущенное вами, локальное registry. Дополнительная документация: https://distribution.github.io/distribution/about/deploying/
